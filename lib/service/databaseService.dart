@@ -5,14 +5,48 @@ import 'package:flutter/material.dart';
 
 class DetailPage extends StatelessWidget {
   final DocumentSnapshot documentSnapshot;
-  DetailPage({this.documentSnapshot});
+  final List<dynamic> documentSnapshotList;
+  DetailPage({this.documentSnapshot,this.documentSnapshotList});
+  final TextStyle style = TextStyle(fontSize: 22,);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Card(
-        child: ListTile(
-          title: Text(documentSnapshot.data()['address']['street']),
-          subtitle: Text(documentSnapshot.data()['address']['block']),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            AspectRatio(
+              aspectRatio: 4/3,
+              child: Card(
+                color: Colors.orange[50],
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text('Name: ${documentSnapshot.data()['name']}',style: style,),
+                    Text('Block: ${documentSnapshot.data()['address']['block']}',style: style,),
+                    Text('Street: ${documentSnapshot.data()['address']['street']}',style: style,)
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height/5,
+              child: ListView(
+                children: documentSnapshotList.map((list){
+                  return Card(
+                    color: Colors.blueGrey,
+                    child: ListTile(
+                      title: Text(list),
+                    ),
+                  );
+                } ).toList()
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -7,8 +7,6 @@ import 'package:flutter_app/service/databaseService.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  DocumentReference  docRef = FirebaseFirestore.instance.collection('NetNinja').doc('I2wgUoD3wMf8D0ixbfbq');
-
   runApp(MyApp());
 }
 
@@ -144,20 +142,19 @@ class MyHomePage extends StatelessWidget {
                       );
                     } else {
                       return ListView(
-                        children:
-                            snapshot.data.docs.map((queryDocumentSnapShot) {
+                        children: snapshot.data.docs.map((queryDocumentSnapshot){
                           return Card(
-                            color: Colors.blueGrey,
+                            color: Colors.orange[50],
                             child: ListTile(
-                              title: Text(queryDocumentSnapShot.data()['name']),
-                              subtitle: Text(queryDocumentSnapShot.id),
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => DetailPage(
-                                        documentSnapshot: queryDocumentSnapShot),
-                                    ));
+                              title: Text(queryDocumentSnapshot.data()['name']),
+                              subtitle: Text(queryDocumentSnapshot.id),
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(
+                                  builder: (context)=>DetailPage(
+                                    documentSnapshotList: queryDocumentSnapshot.data()['children'],
+                                    documentSnapshot: queryDocumentSnapshot,
+                                  ),
+                                ));
                               },
                             ),
                           );
@@ -216,8 +213,10 @@ class MyHomePage extends StatelessWidget {
                   }),
             ),
           ),
+
         ],
       ),
     );
   }
 }
+
