@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1009832439683",
+    "firebase_url": "https://simplecrud-4a5b8.firebaseio.com",
+    "project_id": "simplecrud-4a5b8",
+    "storage_bucket": "simplecrud-4a5b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1009832439683:android:b6f767475bbff45e36d0b6",
+        "android_client_info": {
+          "package_name": "com.example.flutter_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1009832439683-j1pv85ce56laqd280ibsc055kshce896.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBi9YDVkr_yquVx4YZ98lK4jQ-HC-vo0rg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1009832439683-j1pv85ce56laqd280ibsc055kshce896.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
